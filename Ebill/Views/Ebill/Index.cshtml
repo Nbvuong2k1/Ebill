@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Ebill.Models.BillDetail>
+@{
+    ViewBag.Title = "E-Bill";
+}
+
+<div class="container shadow rounded mt-4">
+    <div class="row">
+        <div class="col-12">
+            <h4>Tất cả hóa đơn</h4>
+            <table class="table table-responsive table-striped table-hover table-bordered text-center ">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Tên khách hàng</th>
+                        <th>Số điện thoại</th>
+                        <th>Địa chỉ</th>
+                        <th>Tổng tiền</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.Id</td>
+                            <td>@item.CustomerName</td>
+                            <td>@item.MobileNumber</td>
+                            <td>@item.Address</td>
+                            <td>@item.TotalAmount</td>
+                            <td>
+                                @Html.ActionLink("Chi tiết", "ViewBill", "EBill", new {Id = item.Id}, new {@class="btn btn-sm btn-light border"})
+                            </td>
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
