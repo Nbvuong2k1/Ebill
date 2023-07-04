@@ -87,7 +87,11 @@
             $.ajax({
                 url: "/EBill/CreateItem",
                 type: "POST",
+<<<<<<< HEAD
                 data: {productName,price,quantity,ItemIndex},
+=======
+                data: {productName, price, quantity, ItemIndex },
+>>>>>>> 47bc49f66ba15c921517e045bcdaea99f0109a26
                 success: function (resp) {
                     $('#items tbody').append(resp);
                     $('#productname').val("");
@@ -99,6 +103,9 @@
                 }
             })
         })
+<<<<<<< HEAD
        
+=======
+>>>>>>> 47bc49f66ba15c921517e045bcdaea99f0109a26
     })
 </script>

@@ -25,7 +25,11 @@ namespace Ebill.Repository
             {
                 details.TotalAmount = details.Items.Sum(i => i.Price * i.Quantity);
                 con.Open();
+
                 SqlCommand cmd = new SqlCommand("spt_saveEBillDetails", con);
+
+                SqlCommand cmd = new SqlCommand("spt_saveBillDetails", con);
+
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@CustomerName", details.CustomerName);
                 cmd.Parameters.AddWithValue("@MobileNumber",details.MobileNumber);
@@ -45,7 +49,11 @@ namespace Ebill.Repository
                 }
                
             }
+
             catch (Exception )
+
+            catch (Exception ex)
+
             {
                 throw;
             }
@@ -59,7 +67,11 @@ namespace Ebill.Repository
         {
             try
             {
+
                 string qry = "insert into tbl_BillItems(ProductName,Price,Quantity,BillId ) values";
+
+                string qry = "insert into tbl_BillItems(ProductName,Price,Quantity) values";
+>>>>>>> 47bc49f66ba15c921517e045bcdaea99f0109a26
                 foreach (var item in items)
                 {
                     qry += String.Format("('{0}',{1},{2},{3}),", item.ProductName, item.Price, item.Quantity, id);
@@ -70,6 +82,7 @@ namespace Ebill.Repository
             }
             catch (Exception)
             {
+
                 throw;
             }
         }
@@ -151,6 +164,10 @@ namespace Ebill.Repository
                 con.Close(); 
             }
             return detail;
+
+                throw;
+            }
+
         }
     }
 }

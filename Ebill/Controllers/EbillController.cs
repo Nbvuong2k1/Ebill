@@ -13,9 +13,13 @@ namespace Ebill.Controllers
         // GET: Ebill
         public ActionResult Index()
         {
+<<<<<<< HEAD
             Data data = new Data();
             var list = data.GetAllDetail();
             return View(list);
+=======
+            return View();
+>>>>>>> 47bc49f66ba15c921517e045bcdaea99f0109a26
         }
         public ActionResult Create()
         {
@@ -35,11 +39,14 @@ namespace Ebill.Controllers
         
             return PartialView("_CreateItem",item);
         }
+<<<<<<< HEAD
         public ActionResult ViewBill(int Id)
         {
             Data data = new Data();
             var details = data.GetDetail(Id);
             return View(details);
         }
+=======
+>>>>>>> 47bc49f66ba15c921517e045bcdaea99f0109a26
     }
 }
